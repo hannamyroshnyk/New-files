@@ -1,0 +1,27 @@
+let canvas = document.createElement('canvas')
+
+document.body.appendChild(canvas)
+document.body.style.margin = '0'
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+let w = canvas.width
+let h = canvas.height
+
+let ctx = canvas.getContext('2d')
+
+function loop() {
+  ctx.beginPath()
+  ctx.arc(Math.random() * w, Math.random() * h, Math.random() * w / 4, 0, Math.PI * 2)
+  ctx.fillStyle = 'rgba(0, 73, 255, ' + 3 / 256 + ')'
+  ctx.fill()
+
+  ctx.beginPath()
+  ctx.arc(Math.random() * w, Math.random() * h, Math.random() * w / 4, 0, Math.PI * 2)
+  ctx.fillStyle = 'rgba(255, 255, 255, ' + 2 / 256 + ')'
+  ctx.fill()
+
+  requestAnimationFrame(loop)
+}
+loop()
